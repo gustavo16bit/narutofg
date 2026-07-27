@@ -1,0 +1,19 @@
+{
+  "name": "naruto-fighter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Fan game de luta estilo Street Fighter SNES com tematica Naruto (nao-comercial, para estudo)",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "phaser": "^3.80.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4",
+    "vite": "^5.4.2"
+  }
+}

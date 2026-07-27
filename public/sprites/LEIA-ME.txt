@@ -1,0 +1,40 @@
+COMO ADICIONAR SPRITES DO NARUTO (pipeline pronto)
+==================================================
+
+O jogo procura automaticamente um spritesheet PNG por personagem nesta pasta:
+
+    public/sprites/naruto.png
+    public/sprites/sasuke.png
+    public/sprites/sakura.png
+    public/sprites/rocklee.png
+    public/sprites/gaara.png
+    public/sprites/kakashi.png
+
+Se o arquivo existir  -> o lutador usa o SPRITE animado.
+Se NAO existir        -> o lutador usa o ninja desenhado por codigo (fallback).
+
+FORMATO DO SPRITESHEET
+----------------------
+- PNG unico, com os frames em GRADE, todos do MESMO tamanho (ex.: 64x64).
+- Fundo transparente.
+- Ordem dos frames: esquerda -> direita, cima -> baixo (frame 0 e o primeiro).
+
+PASSO A PASSO (a partir de um char de MUGEN)
+--------------------------------------------
+1) Abra o char no Fighter Factory (editor gratuito de MUGEN).
+2) Exporte os sprites como imagens PNG.
+3) Monte um spritesheet em grade (ex.: com o TexturePacker, ou juntando os PNGs
+   numa grade regular). Salve como public/sprites/<id>.png.
+4) Abra src/sprites.ts e ajuste em SPRITE_OVERRIDES:
+     - frameWidth / frameHeight  = tamanho de CADA frame do seu sheet
+     - anims.<estado>.frames      = indices dos frames de cada animacao
+   Estados usados: idle, walk, crouch, jump, punch, kick, special, hit, block, ko
+5) Recarregue o navegador. Pronto.
+
+DICA
+----
+Comece so com idle/walk/punch/kick pra validar o alinhamento (originY controla
+onde ficam os pes). Depois complete as demais animacoes.
+
+Observacao de direitos: sprites do Naruto sao material protegido; use apenas
+para estudo/teste, sem redistribuir.
